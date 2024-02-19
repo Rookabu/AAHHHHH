@@ -39,6 +39,16 @@ type Components =
                     style.margin (length.rem 8)
                 ]
             ]
+            Html.button [
+                prop.onClick (fun _ -> setCount(count + 1))
+                prop.text "Erhöhe mich!!!!!!"
+                prop.style [
+                    style.borderRadius 35
+                    style.backgroundColor.hotPink
+                    style.padding (length.rem 7)
+                    style.margin (length.rem 8)
+                ]
+            ]
             
             Html.button [
                 prop.onClick (fun _ -> setCount(count - 1))
