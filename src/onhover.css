@@ -1,5 +1,13 @@
-.hovereffekt:hover{
-    background-color: yellow;
-    padding: 20px;
-    display: block;
+.hovereffektplus:hover{
+    color: #ffcffd;
+    background-color: #641b5a !important;
+    border-color: #ffcffd;
+    transition: all 0.3s ease 0s;
+  }
+
+  .hovereffektminus:hover{
+    color: #d8ffe4;
+    background-color: #187464 !important;
+    border-color: #d8ffe4;
+    transition: all 0.3s ease 0s;
   }

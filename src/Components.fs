@@ -18,13 +18,13 @@ type Components =
     static member Counter() =
         let (count, setCount) = React.useState(0)
         Html.div [
-            Html.h1 count
+            Html.h1 count 
             Html.button [
                 prop.onClick (fun _ -> setCount(count + 1))
                 prop.text "Erhöhe mich!"
+                prop.className "hovereffektplus"
                 prop.style [
-                    style.custom "hovereffekt"
-                    style.borderRadius 35
+                    style.borderRadius 40
                     style.backgroundColor.hotPink
                     style.padding (length.rem 7)
                     style.margin (length.rem 4)
@@ -34,15 +34,16 @@ type Components =
             Html.button [
                 prop.onClick (fun _ -> setCount(count - 1))
                 prop.text "Erniedrige mich!"
+                prop.className "hovereffektminus"
                 prop.style [
-                    style.borderRadius 35  
+                    style.borderRadius 40
                     style.backgroundColor.aquaMarine
                     style.padding (length.rem 7)
                     style.margin (length.rem 4)
                 ]
             ]
         ]
-        
+      
         
     /// <summary>
     /// A React component that uses Feliz.Router
