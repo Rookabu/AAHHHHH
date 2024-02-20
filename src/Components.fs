@@ -23,6 +23,7 @@ type Components =
                 prop.onClick (fun _ -> setCount(count + 1))
                 prop.text "Erhöhe mich!"
                 prop.style [
+                    style.custom "hovereffekt"
                     style.borderRadius 35
                     style.backgroundColor.hotPink
                     style.padding (length.rem 7)

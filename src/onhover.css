@@ -1,4 +1,5 @@
-.hovereffekt {
-text
-
-}
+.hovereffekt:hover{
+    background-color: yellow;
+    padding: 20px;
+    display: block;
+  }
