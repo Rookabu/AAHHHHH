@@ -21,7 +21,7 @@ type Components =
             Html.h1 count
             Html.button [
                 prop.onClick (fun _ -> setCount(count + 1))
-                prop.text "Erhöhe mich!!!!!!"
+                prop.text "Erhöhe mich!"
                 prop.style [
                     style.borderRadius 35
                     style.backgroundColor.hotPink
