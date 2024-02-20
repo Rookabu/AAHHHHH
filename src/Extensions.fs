@@ -14,11 +14,5 @@ module StaticFile =
 /// Stylesheet API
 /// let private stylesheet = Stylesheet.load "./fancy.module.css"
 /// stylesheet.["fancy-class-name"] which returns a string
-module Stylesheet =
 
-    type IStylesheet =
-        [<Emit "$0[$1]">]
-        abstract Item : className:string -> string
 
-    /// Loads a CSS module and makes the classes within available
-    let inline load (path: string) = importDefault<IStylesheet> path
