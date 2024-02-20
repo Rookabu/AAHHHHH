@@ -26,7 +26,7 @@ type Components =
                     style.borderRadius 35
                     style.backgroundColor.hotPink
                     style.padding (length.rem 7)
-                    style.margin (length.rem 8)
+                    style.margin (length.rem 4)
                 ]
             ]
             
@@ -37,7 +37,7 @@ type Components =
                     style.borderRadius 35  
                     style.backgroundColor.aquaMarine
                     style.padding (length.rem 7)
-                    style.margin (length.rem 8)
+                    style.margin (length.rem 4)
                 ]
             ]
         ]
