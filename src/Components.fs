@@ -18,7 +18,12 @@ type Components =
     static member Counter() =
         let (count, setCount) = React.useState(0)
         Html.div [
-            Html.h1 count 
+            Html.h1 [
+                prop.text count
+                prop.style [
+                    style.textAlign.center
+                ]
+            ] 
             Html.button [
                 prop.onClick (fun _ -> setCount(count + 1))
                 prop.text "Erhöhe mich!"
