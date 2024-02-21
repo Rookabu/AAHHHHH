@@ -5,13 +5,8 @@ open Feliz.Router
 
 type Components =
     /// <summary>
-    /// The simplest possible React component.
-    /// Shows a header with the text Hello World
+    /// The simplest possible React component. (h1)
     /// </summary>
-    [<ReactComponent>]
-    static member HelloWorld() = Html.h1 "Hello World"
-    ///Warum wird dieser component nicht angezeigt?
-    /// <summary>
     /// A stateful React component that maintains a counter
     /// </summary>
     [<ReactComponent>]
@@ -57,15 +52,9 @@ type Components =
             Html.div [
                 prop.text "Ich erniedrige die Zahl!"
                 prop.className "hiddenuntilhoverminus"
-            ]  
-            // Html.a [
-            //     prop.text "Freshe To-Do-Liste"
-            //     prop.className "todoliste"
-            //     prop.href "https://www.youtube.com/"
-            // ]         
+            ]      
          ]
 
-    
     /// <summary>
     /// A React component that uses Feliz.Router
     /// to determine what to show based on the current URL
@@ -78,7 +67,6 @@ type Components =
             router.children [
                 match currentUrl with
                 | [ ] -> Html.h1 "Index"
-                | [ "hello" ] -> Components.HelloWorld()
                 | [ "counter" ] -> Components.Counter()
                 | otherwise -> Html.h1 "Not found"
             ]
