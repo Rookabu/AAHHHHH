@@ -60,7 +60,7 @@ type Components =
     /// to determine what to show based on the current URL
     /// </summary>
     [<ReactComponent>]
-    static member Router() =
+    static member RouterCounter() =
         let (currentUrl, updateUrl) = React.useState(Router.currentUrl())
         React.router [
             router.onUrlChanged updateUrl
