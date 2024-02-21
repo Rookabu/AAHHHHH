@@ -1,13 +1,103 @@
+.hovereffektplus{
+    background-color: hotpink;
+}
+/* Festlegung der Farbe in css datei statt in components um kein important stzen zu mmüssen (siehe unten) */
+
 .hovereffektplus:hover{
     color: #ffcffd;
-    background-color: #641b5a !important;
+    background-color: #641b5a;
     border-color: #ffcffd;
-    transition: all 0.3s ease 0s;
   }
 
-  .hovereffektminus:hover{
+/* effekt der auftreten soll wenn man drüber hovert */
+
+.hovereffektplus:hover + .hiddenuntilhoverplus{
+    display: inline-block;
+} 
+
+/* hiddenuntilhover text ist "unsichtbar" bis darüber gehovert wird und ist spezifischer da über + display: none mit display
+inline block überschrieben wird */
+
+.hovereffektminus:hover{
     color: #d8ffe4;
     background-color: #187464 !important;
     border-color: #d8ffe4;
-    transition: all 0.3s ease 0s;
   }
+
+
+.hovereffektminus:hover + .hiddenuntilhoverminus {
+    display: inline-block;
+  }
+
+.hiddenuntilhoverplus {
+    display: none 
+}
+
+/* Zustand des Textes wenn nicht gehovert wird (none) */
+
+.hiddenuntilhoverminus {
+    display: none
+}
+
+.transition-all {
+    transition: all 0.3s ease 0s
+}
+
+/* fügt der component einen transition effekt hinzu (wurde seperat hinzugefügt) */
+
+
+
+
+body{
+  background:#8fc3ee;
+  vertical-align:middle;
+  display:flex;
+  justify-content:center;
+  height:100%;
+}
+.todoliste{
+    top:0;
+    font-weight: bold;
+    margin:0 20px;
+    position:relative;
+    text-decoration:none;
+    display:block;
+    padding:5px 0;
+    font-family:'Open Sans';
+    font-size:26px;
+    line-height:1;
+    z-index:1;
+    text-shadow: black;
+    text-align: center;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(
+          to right,
+          #fff064,
+          #dc51ff 50%,
+          #ffc70f 50%);
+      background-size: 200% 100%;
+      background-position: -100%;
+      transition: all 0.3s ease-in-out;
+      &:before{
+        display:block;
+        content:'';
+        width:0;
+        height:3px;
+        bottom:1px;
+        left:0;
+        bottom:-3px;
+        z-index:0;
+    position:absolute;
+    background:#ffc70f;
+    transition: all 0.3s ease-in-out;
+      }
+      &:hover{
+        background-position: 0%;
+        &:before{
+          width:100%;
+        }
+      }
+    }
+  
+

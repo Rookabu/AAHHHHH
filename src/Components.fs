@@ -10,7 +10,7 @@ type Components =
     /// </summary>
     [<ReactComponent>]
     static member HelloWorld() = Html.h1 "Hello World"
-
+    ///Warum wird dieser component nicht angezeigt?
     /// <summary>
     /// A stateful React component that maintains a counter
     /// </summary>
@@ -22,24 +22,29 @@ type Components =
                 prop.text count
                 prop.style [
                     style.textAlign.center
+                    style.fontSize 60
                 ]
             ] 
             Html.button [
                 prop.onClick (fun _ -> setCount(count + 1))
                 prop.text "Erhöhe mich!"
-                prop.className "hovereffektplus"
+                prop.className "transition-all hovereffektplus"
                 prop.style [
                     style.borderRadius 40
-                    style.backgroundColor.hotPink
                     style.padding (length.rem 7)
                     style.margin (length.rem 4)
                 ]
             ]
-            
+            Html.div [
+                prop.text "Ich erhöhe die Zahl!"
+                prop.className "hiddenuntilhoverplus" //solange nicht drüber gehovert wird, hat hiddenuntilhover display:none. 
+                                                    //Sobald gehovert wird überschreibt sich die + klasse da sie spezifischer ist und es wird sichtbar
+            ]
+
             Html.button [
                 prop.onClick (fun _ -> setCount(count - 1))
                 prop.text "Erniedrige mich!"
-                prop.className "hovereffektminus"
+                prop.className "transition-all hovereffektminus"
                 prop.style [
                     style.borderRadius 40
                     style.backgroundColor.aquaMarine
@@ -47,9 +52,18 @@ type Components =
                     style.margin (length.rem 4)
                 ]
             ]
+            Html.div [
+                prop.text "Ich erniedrige die Zahl!"
+                prop.className "hiddenuntilhoverminus"
+            ]  
+            Html.a [
+                prop.text "Freshe To-Do-Liste"
+                prop.className "todoliste"
+                prop.href "https://www.youtube.com/"
+            ]         
         ]
-      
-        
+
+    
     /// <summary>
     /// A React component that uses Feliz.Router
     /// to determine what to show based on the current URL
