@@ -1,32 +1,24 @@
-namespace App
+namespace Components
 
 open Feliz
 open Feliz.Router
 
-type navComponents =
-    [<ReactComponent>]
-
-    static member Counter() = 
-        
+type NavBar =
+    static member private Subpagelink(page: Types.Page,setPage: Types.Page -> unit) = 
         Html.div [
             Html.a [
-                prop.text "Cooler Counter"
+                prop.text (page.toStringReadable())
                 prop.className "todoliste"
-                prop.href "https://www.youtube.com/"
+                prop.onClick (fun _ -> setPage(page))
             ]
         ]
+    
+    static member Counter(setPage) = 
+        NavBar.Subpagelink(Types.Page.Counter, setPage)   
 
-    static member Todo() =     
-        Html.div [
-            Html.a [ 
-                prop.text "Freshe To-Do-Liste"
-                prop.className "todoliste"
-                prop.href "https://www.youtube.com/"
-            ]
-        ]
-    /// A React component that uses Feliz.Router
-    /// to determine what to show based on the current URL
-    /// </summary>
+
+    static member Todo(setPage) =     
+        NavBar.Subpagelink(Types.Page.Todo, setPage)
 
 //Matchcase hier hin
 

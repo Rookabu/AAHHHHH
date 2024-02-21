@@ -1,27 +1,16 @@
-namespace App
+namespace Components
 
 open Feliz
 open Feliz.Router
 
-type Components =
+type Todo =
     [<ReactComponent>]
 
-    static member Todo () = 
+    static member Main() = 
         Html.div [
-            prop.text "Todo-Lsite"
+            prop.text "Todo-Liste"
+        ]
 
-        ]
-    [<ReactComponent>]
-    static member RouterTodo() =
-        let (currentUrl, updateUrl) = React.useState(Router.currentUrl())
-        React.router [
-            router.onUrlChanged updateUrl
-            router.children [
-                match currentUrl with
-                | [ ] -> Html.h1 "Index"
-                | [ "todo" ] -> Components.Todo()
-                | otherwise -> Html.h1 "Not found"
-            ]
-        ]
+
 
     

@@ -8,4 +8,4 @@ open Fable.Core.JsInterop
 importSideEffects "./onhover.css"
 
 let root = ReactDOM.createRoot(document.getElementById "feliz-app")
-root.render(Components.Counter()) //mit navBar noch ersetzen
+root.render(View.Main()) 
