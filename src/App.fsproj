@@ -5,8 +5,10 @@
     <ItemGroup>
         <None Include="index.html" />
         <Compile Include="Extensions.fs" />
-        <Compile Include="Components.fs" />
+        <Compile Include="Counter.fs" />
         <Compile Include="Main.fs" />
+        <Compile Include="startNavBar.fs" />
+        <Compile Include="todo.fs" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Feliz" Version="2.6.0" />
