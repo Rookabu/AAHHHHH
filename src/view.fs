@@ -12,8 +12,7 @@ type View =
         Html.div [
             prop.children [
                 Html.nav [
-                    prop.className "todoliste"
-                    Components.NavBar.Counter(setpage)
+                   // Components.NavBar.Counter(setpage)
                     Components.NavBar.Todo(setpage)//fixxen
                 ]
                 match page with

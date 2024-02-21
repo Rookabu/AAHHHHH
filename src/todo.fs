@@ -10,7 +10,7 @@ type Todo =
         Html.div [
             prop.text "Todo-Liste"
         ]
-
+// Switch zurück zum Counter einfügen
 
 
     
