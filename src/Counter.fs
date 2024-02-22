@@ -3,6 +3,8 @@ namespace Components
 open Feliz
 open Feliz.Router
 
+//Hier ist der Counter definiert
+
 type Counter =
     /// <summary>
     /// The simplest possible React component. (h1)
@@ -44,6 +46,7 @@ type Counter =
                 prop.style [
                     style.borderRadius 40
                     style.backgroundColor.aqua
+                    
                     style.padding (length.rem 7)
                     style.margin (length.rem 4)
 

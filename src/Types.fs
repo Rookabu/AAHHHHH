@@ -7,4 +7,4 @@ type Page =
     member this.toStringReadable () =
         match this with
         |Counter -> "Counter" 
-        |Todo -> "Todo-Liste"
+        |Todo -> "Todo-Liste" //zu einem lesbaren strin umwandeln (wird angezeigt auf der website)

@@ -1,5 +1,6 @@
 .hovereffektplus{
     background-color: hotpink;
+
 }
 /* Festlegung der Farbe in css datei statt in components um kein important stzen zu mmüssen (siehe unten) */
 
@@ -48,55 +49,37 @@ inline block überschrieben wird */
 /* fügt der component einen transition effekt hinzu (wurde seperat hinzugefügt) */
 
 
-
-
 body{
-  background:#8fc3ee;
+  background: #6be1d7;
   vertical-align:middle;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 }
-.todoliste{
-    top:0;
-    font-weight: bold;
-    margin:40px 40px;
-    position:relative;
-    text-decoration:none;
-    display:block;
-    padding:5px 0;
-    font-family:'Open Sans';
-    font-size:26px;
-    line-height:1;
+.ofa_button
+    {background-color: #0e4d0c; color: #FFFFFF; padding: 10px; text-align: center; font-size: 16px;
+    border: 5px solid #FFFFFFFF; /* Ein transparenter Rahmen */
+    transition: all 0.4s;
     text-align: center;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-image: linear-gradient(
-          to right,
-          #fff064,
-          #dc51ff 50%,
-          #ffc70f 60%);
-      background-size: 200% 100%;
-      background-position: -100%;
-      transition: all 0.3s ease-in-out;
-      &:before{
-        display:block;
-        content:'';
-        width:0;
-        height:3px;
-        left:0;
-        bottom:-3px;
-        z-index:0;
-    position:absolute;
-    background:#ffc70f;
-    transition: all 0.3s ease-in-out;
-      }
-      &:hover{
-        background-position: 0%;
-        &:before{
-          width:100%;
-        }
-      }
-    }
+    display: block;
+    margin: 40px; 
+    width: 200px;   
+    
+  
+  } /* Alle Eigenschaften werden animiert */
+    
 
+.ofa_button:hover
+    {
+    background-color: #FFFFFF; /* Hintergrundfarbe */
+    color: #000000; /* Textfarbe */
+    border: 5px solid #0e4d0c; /* Neue Farbe für den Rahmen */
+    }
+ .ueberschrift {
+  font-size: 150%;
+  margin-left: 40px;
+ }
+
+ 
 
   
 
