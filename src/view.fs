@@ -18,7 +18,7 @@ type View =
                 ]
                 match page with
                 |Types.Page.Counter -> Components.Counter.Main()
-                |Types.Page.Todo -> Components.Todo.Main() //Matched beim aufrufen es mit der jeweiligen definition
+                |Types.Page.Todo -> Components.Todo.Main() //wird gemachted da die jeweilige component aufgerufen werden soll je nach page (application state)
             ]
         ]
 
