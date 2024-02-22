@@ -10,13 +10,11 @@ type View =
         let page,setpage = React.useState(Types.Page.Counter) //Reagiert beim clicken. Start state ist der Counter
         printfn "%A" page //wird in console geprinted
         Html.div [
-            
             prop.children [
                 Html.nav [     
                     Components.NavBar.Überschrift()            
                     Components.NavBar.Todo(setpage)
                     Components.NavBar.Counter(setpage)
-                
                 ]
                 match page with
                 |Types.Page.Counter -> Components.Counter.Main()
