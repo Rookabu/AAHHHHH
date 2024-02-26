@@ -1,7 +1,8 @@
-@import "node_modules/bulma/css/bulma.css";
+@import "../node_modules/bulma/css/bulma.css";
 
 .hovereffektplus{
     background-color: hotpink;
+    border: 5px solid #FFFFFFFF
 
 }
 /* Festlegung der Farbe in css datei statt in components um kein important stzen zu mmüssen (siehe unten) */
@@ -9,8 +10,9 @@
 .hovereffektplus:hover{
     color: #ffcffd;
     background-color: #641b5a;
-    border-color: #ffcffd;
+    border: 5px solid #ffcffd;
   }
+
 
 /* effekt der auftreten soll wenn man drüber hovert */
 
@@ -24,12 +26,12 @@ inline block überschrieben wird */
 .hovereffektminus:hover{
     color: #d8ffe4;
     background-color: #187464 !important;
-    border-color: #d8ffe4;
+    border:5px solid #d8ffe4;
   }
 
 
 .hovereffektminus:hover + .hiddenuntilhoverminus {
-    display: inline-block;
+    display: contents;
   }
 
 .hiddenuntilhoverplus {
@@ -50,12 +52,18 @@ inline block überschrieben wird */
 
 /* fügt der component einen transition effekt hinzu (wurde seperat hinzugefügt) */
 
+html{
+  overflow: auto
+
+}
 
 body{
   background:#2f992f;
   vertical-align:middle;
   font-family: 'Franklin Gothic Medium';
-  color: black
+  color: black;
+  min-height: 100vh;
+  
 
 }
 .ofa_button
@@ -94,9 +102,6 @@ body{
     display: block;
     margin: 40px; 
     width: 200px;   
-      
-    
-    
  }
 
  

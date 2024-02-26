@@ -48,7 +48,7 @@ type Counter =
                 prop.className "transition-all hovereffektminus"
                 prop.style [
                     style.borderRadius 40
-                    style.backgroundColor.aqua
+                    style.backgroundColor.seaGreen
                     style.textAlign.right
                     style.padding (length.rem 7)
                     style.margin (length.rem 4)
