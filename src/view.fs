@@ -7,16 +7,16 @@ open Feliz.Router
 type View =
     [<ReactComponent>]
     static member Main() =
-        let page,setpage = React.useState(Types.Page.Counter) //Reagiert beim clicken. Start state ist der Counter
-        printfn "%A" page //wird in console geprinted
+        let currentpage,setpage = React.useState(Types.Page.Counter) //Reagiert beim clicken. Start state ist der Counter ->noch in Srat menü umändern
+        printfn "%A" currentpage //wird in console geprinted
         Html.div [
             prop.children [
                 Html.nav [     
                     Components.NavBar.Überschrift()            
-                    Components.NavBar.Todo(setpage)
+                    Components.NavBar.Todo(setpage)s
                     Components.NavBar.Counter(setpage)
                 ]
-                match page with
+                match currentpage with
                 |Types.Page.Counter -> Components.Counter.Main()
                 |Types.Page.Todo -> Components.Todo.Main() //wird gemachted da die jeweilige component aufgerufen werden soll je nach page (application state)
             ]
