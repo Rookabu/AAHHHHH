@@ -2,6 +2,9 @@ namespace Components
 
 open Feliz
 open Feliz.Router
+open Feliz.Bulma
+
+
 
 // open Feliz.Bulma
 
@@ -15,6 +18,7 @@ type Todo =
             prop.text "Todo-Liste"
             
         ]
+        
 
 
     

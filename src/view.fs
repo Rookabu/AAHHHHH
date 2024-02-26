@@ -11,8 +11,7 @@ type View =
         printfn "%A" currentpage //wird in console geprinted
         Html.div [
             prop.children [
-                Html.nav [     
-                    Components.NavBar.Überschrift()            
+                Html.nav [               
                     Components.NavBar.Todo(setpage,currentpage)
                     Components.NavBar.Counter(setpage, currentpage)
                 ]
