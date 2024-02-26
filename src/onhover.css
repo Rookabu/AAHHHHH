@@ -52,9 +52,10 @@ inline block überschrieben wird */
 
 
 body{
-  background: #6be1d7;
+  background:#2f992f;
   vertical-align:middle;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Franklin Gothic Medium';
+  color: black
 
 }
 .ofa_button
