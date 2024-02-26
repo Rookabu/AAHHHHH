@@ -10,3 +10,5 @@ type Page =
         |Todo -> "Todo-Liste" //zu einem lesbaren string umwandeln (wird angezeigt auf der website) 
 
 
+
+

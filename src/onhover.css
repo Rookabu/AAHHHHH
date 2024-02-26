@@ -1,3 +1,5 @@
+@import "node_modules/bulma/css/bulma.css";
+
 .hovereffektplus{
     background-color: hotpink;
 
@@ -76,7 +78,7 @@ body{
     }
 
  .ueberschrift {
-  font-size: 150%;
+  font-size: 130%;
   margin-left: 40px;
  }
 

@@ -13,8 +13,8 @@ type View =
             prop.children [
                 Html.nav [     
                     Components.NavBar.Überschrift()            
-                    Components.NavBar.Todo(setpage)s
-                    Components.NavBar.Counter(setpage)
+                    Components.NavBar.Todo(setpage,currentpage)
+                    Components.NavBar.Counter(setpage, currentpage)
                 ]
                 match currentpage with
                 |Types.Page.Counter -> Components.Counter.Main()

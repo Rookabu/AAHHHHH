@@ -2,6 +2,7 @@ namespace Components
 
 open Feliz
 open Feliz.Router
+open Feliz.Bulma
 
 //Hier ist der Counter definiert
 
@@ -20,8 +21,9 @@ type Counter =
                 prop.style [
                     style.textAlign.center
                     style.fontSize 60
-                ]
+                ]  
             ] 
+            
             Html.button [
                 prop.onClick (fun _ -> setCount(count + 1))
                 prop.text "Erhöhe mich!"
@@ -30,6 +32,7 @@ type Counter =
                     style.borderRadius 40
                     style.padding (length.rem 7)
                     style.margin (length.rem 4)
+                    style.textAlign.left
 
                 ]
             ]
@@ -46,7 +49,7 @@ type Counter =
                 prop.style [
                     style.borderRadius 40
                     style.backgroundColor.aqua
-                    
+                    style.textAlign.right
                     style.padding (length.rem 7)
                     style.margin (length.rem 4)
 
@@ -55,5 +58,6 @@ type Counter =
             Html.div [
                 prop.text "Ich erniedrige die Zahl!"
                 prop.className "hiddenuntilhoverminus"
-            ]      
-         ]
+            ] 
+        ]     
+         
