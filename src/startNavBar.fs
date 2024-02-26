@@ -19,19 +19,10 @@ type NavBar =
                 if targetpage = statePage then  //target page = gewollter state, statepage= aktueller state                
                      prop.className "remainHighlight"   
                 else prop.className "ofa_button"
-                                
-                //         if targetpage <> statePage then 
-                //             ungeklickt <- prop.className "remainHighlight" 
-                //         else ungeklickt <- prop.className "ofa_button" 
-                //         )
                                
             ]
         ] //Definiert den subpage link und ihr aussehen (ofa button)
 
-    // let activeClass = 
-                //     if targetpage = statePage then  //target page = gewollter state, statepage= aktueller state                
-                //          prop.className "remainHighlight"   
-                //     else prop.className "ofa_button" 
     
     static member Counter(setPage, currentpage) = 
         NavBar.Subpagelink(Types.Page.Counter, setPage, currentpage)   //verlinkt den richten suppage link mit dem typen
