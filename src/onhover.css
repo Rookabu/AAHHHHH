@@ -57,15 +57,18 @@ inline block überschrieben wird */
 
 /* fügt der component einen transition effekt hinzu (wurde seperat hinzugefügt) */
 
+html{
+  overflow: auto;
+  background-color: #c7c7c7
+}
+
 body{
-  
   background:#c7c7c7;
+  background-size: auto;
   font-family: 'Franklin Gothic Medium';
   color: rgb(0, 0, 0);
-
- 
-
 }
+
 .ofa_button
     {background-color: #0e4d0c; color: #FFFFFF; padding: 10px; text-align: center; font-size: 16px;
     border: 5px solid #FFFFFFFF; /* Ein transparenter Rahmen */
