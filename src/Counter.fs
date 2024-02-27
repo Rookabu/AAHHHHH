@@ -2,6 +2,7 @@ namespace Components
 
 open Feliz
 
+
 //Hier ist der Counter definiert
 
 type Counter =
@@ -14,16 +15,15 @@ type Counter =
     static member Main() =
         let (count, setCount) = React.useState(0)
         Html.div [
+            
             Html.h1 [
                 prop.text count
                 prop.style [
                     style.textAlign.center
                     style.fontSize 60
                 ]  
-            ] 
-            
-            Html.button [
-            
+            ]            
+            Html.button [            
                 prop.onClick (fun _ -> setCount(count + 1))
                 prop.text "Erhöhe mich!"
                 prop.className "transition-all hovereffektplus"

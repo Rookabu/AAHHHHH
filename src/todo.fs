@@ -1,23 +1,27 @@
 namespace Components
 
 open Feliz
-open Feliz.Router
 open Feliz.Bulma
 
-
-
-// open Feliz.Bulma
-
+ 
 //Hier ist die Todo definiert
 
 type Todo =
     [<ReactComponent>]
-
     static member Main() = 
-        Html.div [
-            prop.text "Todo-Liste"
-            
+        //let (table, addtableslot) = React.useState()
+        Bulma.tag[
+            prop.text "Erstelle dir eine Todo-Liste!"
+            prop.style [
+                style.margin (length.rem 1)
+                style.fontSize 20
+            ]
         ]
+
+
+
+        
+        
         
 
 
