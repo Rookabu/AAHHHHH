@@ -13,21 +13,26 @@
     border: 5px solid #ffcffd;
   }
 
+  .hovereffektminus{
+
+    border: 5px solid #FFFFFFFF
+
+}
+.hovereffektminus:hover{
+  color: #d8ffe4;
+  background-color: #187464 !important;
+  border:5px solid #d8ffe4;
+}  
+
 
 /* effekt der auftreten soll wenn man drüber hovert */
 
 .hovereffektplus:hover + .hiddenuntilhoverplus{
-    display: inline-block;
+    display: contents;
 } 
 
 /* hiddenuntilhover text ist "unsichtbar" bis darüber gehovert wird und ist spezifischer da über + display: none mit display
 inline block überschrieben wird */
-
-.hovereffektminus:hover{
-    color: #d8ffe4;
-    background-color: #187464 !important;
-    border:5px solid #d8ffe4;
-  }
 
 
 .hovereffektminus:hover + .hiddenuntilhoverminus {
@@ -38,7 +43,6 @@ inline block überschrieben wird */
     display: none 
     
 }
-
 /* Zustand des Textes wenn nicht gehovert wird (none) */
 
 .hiddenuntilhoverminus {
@@ -50,35 +54,27 @@ inline block überschrieben wird */
     transition: all 0.3s ease 0s
 }
 
+
 /* fügt der component einen transition effekt hinzu (wurde seperat hinzugefügt) */
 
-html{
-  overflow: auto
-
-}
-
 body{
-  background:#2f992f;
-  vertical-align:middle;
-  font-family: 'Franklin Gothic Medium';
-  color: black;
-  min-height: 100vh;
   
+  background:#c7c7c7;
+  font-family: 'Franklin Gothic Medium';
+  color: rgb(0, 0, 0);
+
+ 
 
 }
 .ofa_button
     {background-color: #0e4d0c; color: #FFFFFF; padding: 10px; text-align: center; font-size: 16px;
     border: 5px solid #FFFFFFFF; /* Ein transparenter Rahmen */
     transition: 0.4s;
-    text-align: center;
     display: block;
-    margin: 40px; 
-    width: 200px;   
-    
-  
+    margin: 40px;
+    width: 170px;   
   } /* Alle Eigenschaften werden animiert */
     
-
 .ofa_button:hover
     {
     background-color: #FFFFFF;
@@ -88,14 +84,13 @@ body{
 
  .ueberschrift {
   font-size: 130%;
-  margin-left: 40px;
+  margin-left: 10px;
  }
 
  .remainHighlight {
   background-color: #FFFFFF;
     color: #000000;
-    border: 5px solid #0e4d0c;
-    padding: 10px; 
+    border: 5px solid #0e4d0c; 
     text-align: center; 
     font-size: 16px;
     transition: 0.4s;
@@ -103,6 +98,16 @@ body{
     margin: 40px; 
     width: 200px;   
  }
+
+ .ofa_buttonmenü
+ {background-color: #188615; color: #FFFFFF; padding: 10px; text-align: center; font-size: 16px;
+ border: 5px solid #FFFFFFFF; /* Ein transparenter Rahmen */
+ transition: 0.4s;
+ text-align: center;
+ display: block;
+ margin: 40px; 
+ width: 200px;   
+}
 
  
 
