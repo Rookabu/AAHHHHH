@@ -10,7 +10,7 @@ open Feliz.Bulma
 
 type NavBar =
     //let mutable ungeklickt = (prop.className "remainHighlight")  
-    static member private Subpagelink(setPage: Types.Page -> unit, statePage: Types.Page) = //öffnet etwas beim click und gibt den text an von toStingreadable
+    static member Subpagelink(setPage: Types.Page -> unit, statePage: Types.Page) = //öffnet etwas beim click und gibt den text an von toStingreadable
         Bulma.navbarMenu [                        
             Bulma.navbarStart.div [  
                 Bulma.navbarItem.a [ Html.img [ prop.src "https://bulma.io/images/bulma-logo-white.png"; prop.height 28; prop.width 112; ]]
@@ -55,8 +55,8 @@ type NavBar =
     // static member Counter(setPage, currentpage) = 
     //     NavBar.Subpagelink( setPage, currentpage)   //verlinkt den richten suppage link mit dem typen
      
-    static member Allgemein(setPage, currentpage) =   
-        NavBar.Subpagelink(setPage, currentpage)  //verlinkt den richten suppage link mit dem typen
+    //static member Allgemein(setPage, currentpage) =   
+       // NavBar.Subpagelink(setPage, currentpage)  //verlinkt den richten suppage link mit dem typen
 
     // static member Überschrift() =
     //      Bulma.navbarMenu [

@@ -12,7 +12,7 @@ type View =
             prop.children [ 
                 Html.a [ 
                     //Components.NavBar.Überschrift()          
-                    Components.NavBar.Allgemein(setpage,currentpage)
+                    Components.NavBar.Subpagelink(setpage,currentpage)
                     //Components.NavBar.Counter(setpage, currentpage)
                 ]
                 match currentpage with
