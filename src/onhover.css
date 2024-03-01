@@ -112,7 +112,14 @@ body{
  width: 200px;   
 }
 
+.childstyle > :not(:first-child) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
  
-
+.childstyle > * {
+  margin-top: 20px; /* Adjust this value to set the desired margin */
+}
   
 

@@ -24,28 +24,29 @@ type Todo =
         let (input, setinput) = React.useState("") //setinput soll den input(string) neu setzen. 
        
         Html.div [
+            prop.className "childstyle"
+            prop.children [    
             Html.h1[                
                 color.isWhite
                 prop.text "Erstelle dir eine Todo-Liste! Du kannst die Einträge abhaken und wieder entfernen."
                 prop.style [
-                    style.margin (length.rem 1)
+                    style.marginBottom 10   
                     style.fontSize 20
-                    style.width 1000
+                
                 ]
-            ]              
+            ] 
+                                 
             Bulma.control.div[
                 Bulma.input.text [
                     prop.placeholder "Eintrag" //Der string der hier eingegeben wird soll gespeichert werden und den button "Eintrag hinzufügen" geshickt werden welcher mit propon click den table neu settet
-                    prop.onChange (fun (x:string) -> setinput x)
+                    prop.onChange (fun (x:string) -> setinput x) 
                     prop.style [
-                        style.marginLeft (length.rem 37)
-                        style.marginTop (length.rem 4)
                         style.fontSize 20
                         style.width 700
                     ]            
                 ]
             ]
-            Html.h1[
+            Html.div[
                 Bulma.button.button [
                     color.isInfo;
                     prop.text "Eintrag hinzufügen"
@@ -53,14 +54,12 @@ type Todo =
                          {Eintrag = input; Checkbox = false} ::table |> settable  //fügt einen neuen Eintrag zu liste hinzu und settet diesen neuen table. X soll den input von "Eintrag" erhalten                       
                     ))
                     prop.style [
-                        style.marginLeft (length.rem 52)
-                        style.marginTop (length.rem 2)
                         style.fontSize 20
                     ]
                 ]               
             ]
             
-            Html.h1[                     
+            Html.div[                     
                     Bulma.table [
                         Html.thead [
                             Html.tr [
@@ -90,6 +89,8 @@ type Todo =
                 
             
              ]
+            ]
+             
         ]
             
         
