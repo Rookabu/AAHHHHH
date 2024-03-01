@@ -30,7 +30,8 @@ type Todo =
                 color.isWhite
                 prop.text "Erstelle dir eine Todo-Liste! Du kannst die Einträge abhaken und wieder entfernen."
                 prop.style [
-                    style.marginBottom 10   
+                    style.marginLeft (length.rem 2)
+                    style.marginBottom (length.rem 5)
                     style.fontSize 20
                 
                 ]
@@ -78,9 +79,10 @@ type Todo =
                                     Html.td [
                                         Bulma.delete [
                                             delete.isMedium
-                                            prop.onClick (fun _ -> (
-                                                {Eintrag = ""; Checkbox = false} ::table |> settable   //soll löschen                      
-                                            ))
+                                            prop.onClick (fun _ ->
+                                                            let listlength = List.length table
+                                                            let newlist = List.take (listlength - 1) table |> settable //noch umschreiben das nur der jeweilige eintrag gelöscht wird
+                                                            newlist)
                                             ]
                                     ]
                                 ]
