@@ -7,10 +7,12 @@ open Feliz.Bulma
 //Hier ist die Todo definiert
 
 
-type Listenelement = {
+type TodoElement = {
     Eintrag: string
     Checkbox: bool     
 }
+
+//state: liste aus record typen
 
 type Todo =
     [<ReactComponent>]
@@ -18,9 +20,9 @@ type Todo =
         let beispiel = [
             {Eintrag = "Beispiel: Einkaufen gehen"; Checkbox = false}
         ]
-
-        let (table:Listenelement list), settable = React.useState(beispiel) //ANSATZ: neue funktion schreiben die wie settable etwas an den hinzufügen button schickt
-        let userinput (x:string) = {Eintrag = x ; Checkbox = false} //state: liste aus record typen //todoliste: string + bool
+        let (table, settable) = React.useState(beispiel) //ANSATZ: neue funktion schreiben die wie settable etwas an den hinzufügen button schickt
+        let (input, setinput) = React.useState("") //setinput soll den input(string) neu setzen. 
+       
         Html.div [
             Html.h1[                
                 color.isWhite
@@ -33,10 +35,8 @@ type Todo =
             ]              
             Bulma.control.div[
                 Bulma.input.text [
-                    prop.placeholder "Eintrag"
-                    prop.onChange (fun (x:string) ->
-                                    ({Eintrag = x ; Checkbox = false}::table |> *funktion die es an button weiterschickt*) 
-                                    )
+                    prop.placeholder "Eintrag" //Der string der hier eingegeben wird soll gespeichert werden und den button "Eintrag hinzufügen" geshickt werden welcher mit propon click den table neu settet
+                    prop.onChange (fun (x:string) -> setinput x)
                     prop.style [
                         style.marginLeft (length.rem 37)
                         style.marginTop (length.rem 4)
@@ -50,7 +50,7 @@ type Todo =
                     color.isInfo;
                     prop.text "Eintrag hinzufügen"
                     prop.onClick (fun _ -> (
-                        {Eintrag = "Staubsaugen"; Checkbox = false} ::table |> settable  //fügt einen neuen Eintrag zu liste hinzu und settet diesen neuen table                       
+                         {Eintrag = input; Checkbox = false} ::table |> settable  //fügt einen neuen Eintrag zu liste hinzu und settet diesen neuen table. X soll den input von "Eintrag" erhalten                       
                     ))
                     prop.style [
                         style.marginLeft (length.rem 52)
