@@ -30,6 +30,9 @@ type Todo =
         ]
         let (table, settable) = React.useState(beispiel)
 
+        let stringconverter (eingabe:string) =
+            SimpleJson.parse eingabe
+
         let setLocalStorage (key:string) (info: string) =
             Browser.WebStorage.localStorage.setItem (key, info)
 
