@@ -4,10 +4,7 @@ open Feliz
 open Feliz.Bulma
 open Fable.SimpleJson
 
-
- 
 //Hier ist die Todo definiert
-
 
 type TodoElement = {
     Eintrag: string
@@ -25,12 +22,10 @@ type Todo =
          //ANSATZ: neue funktion schreiben die wie settable etwas an den hinzufügen button schickt
         let (input, setinput) = React.useState("") //setinput soll den input(string) neu setzen. 
         let (count, setcount) = React.useState(0)
-        let beispiel = [
-            {Eintrag = "Beispiel: Einkaufen gehen"; Checkbox = false; Number = count}
-        ]
+        let beispiel = [{Eintrag = "Beispiel: Einkaufen gehen"; Checkbox = false; Number = count}]
         let (table, settable) = React.useState(beispiel)
 
-        let stringconverter (eingabe:string) =
+        let stringconverter (eingabe:string) = //string to json
             SimpleJson.parse eingabe
 
         let setLocalStorage (key:string) (info: string) =
@@ -46,7 +41,7 @@ type Todo =
                 if element.Number <> elementToRemove then
                     newTable <- newTable @ [element] //wenn das jeweilige element nicht dem elementtoremove entspricht, 
             newTable                                //wird dieses zum table hinzugefügt. So entsteht eine neue liste ohne das jeweilige element
-        Html.div [
+        Html.div[
             prop.className "childstyle"
             prop.children[    
             Html.h1[                
@@ -76,16 +71,29 @@ type Todo =
                     prop.onClick (fun _ -> (
                         let nextnumber = count + 1 
                         setcount nextnumber     
-                        {Eintrag = input; Checkbox = false; Number = nextnumber} ::table |> settable  //fügt einen neuen Eintrag zu liste hinzu und settet diesen neuen table. X soll den input von "Eintrag" erhalten                       
-                    ))
-                    // prop.onKeyPress (fun _ -> (
-                    //      {Eintrag = input; Checkbox = false} ::table |> settable  //fügt einen neuen Eintrag zu liste hinzu und settet diesen neuen table. X soll den input von "Eintrag" erhalten                       
-                    // )) 
-                    prop.style [
+                        {Eintrag = input; Checkbox = false; Number = nextnumber} ::table |> settable;
+                        let JSONString = Json.stringify table
+                        Browser.Dom.console.log (JSONString)
+                        setLocalStorage "Eintrag" JSONString  //tabelle soll als string local gespeichert (set) werden und bei wieder aufruf der seite geholt werden (get). Da die liste kein string ist muss es als json zu eunem string umgewandelt werden                   
+                        ))
+                    prop.style[
                         style.fontSize 20
                     ]
                 ]               
-            ]            
+            ] 
+            Html.div[
+                Bulma.button.button[
+                    color.isInfo;
+                    prop.text "hole Speicher"
+                    prop.onClick (fun _ -> (
+                        getLocalStorage "Eintrag" 
+                         //tabelle soll als string local gespeichert (set) werden und bei wieder aufruf der seite geholt werden (get). Da die liste kein string ist muss es als json zu eunem string umgewandelt werden                   
+                        ))
+                    prop.style[
+                        style.fontSize 20
+                    ]
+                ]               
+            ]           
             Html.div[                     
                     Bulma.table[
                         Html.thead[
@@ -100,14 +108,14 @@ type Todo =
                                 //let element = List.item i table
                                 Html.tr[
                                     Html.td element.Eintrag //fügt Eintrag hinzu
-                                    Html.td [Bulma.control.div [Bulma.input.checkbox[]]]
-                                    Html.td [
+                                    Html.td[Bulma.control.div [Bulma.input.checkbox[]]]
+                                    Html.td[
                                         Bulma.delete[
                                             delete.isMedium
                                             prop.onClick (fun _ -> 
-                                            element.Number |> removeElementFromTable |> settable)
-                                                // let newlist = List.take (element:int) table |> settable //noch umschreiben das nur der jeweilige eintrag gelöscht wird
-                                                // newlist) 
+                                            element.Number |> removeElementFromTable |> settable
+                                            setLocalStorage "test" "hello"
+                                                )
                                                 // auf uniquen parameter zugreifen --> Integer!! 
                                         ]
                                     ]
@@ -115,8 +123,7 @@ type Todo =
                         ]
                     ]
             ]
-            ]
-             
+            ]          
         ]
             
         
