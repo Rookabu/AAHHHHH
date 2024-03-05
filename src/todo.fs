@@ -32,6 +32,7 @@ type Todo =
 
         let backfromstring input= Json.parseAs<TodoElement list> (getLocalStorage input)
 
+
         let isLocalStorageClear () =
             match Browser.WebStorage.localStorage.getItem("Eintrag") with
             | null -> true // Local storage is clear if the item doesn't exist
@@ -48,8 +49,8 @@ type Todo =
         let megaSet (nextTable: TodoElement list) =
             let JSONString = Json.stringify nextTable //tabelle wird zu einem string convertiert
             Browser.Dom.console.log (JSONString) 
-            setLocalStorage "Eintrag" JSONString
-            settable nextTable
+            setLocalStorage "Eintrag" JSONString //local storage wird gesettet
+            settable nextTable //aktualisiert table
 
         let nextnumber = count + 1
 
@@ -90,7 +91,7 @@ type Todo =
                     prop.onClick (fun _ -> ( 
                         //setLocalStorage "Eintrag" JSONString
                             setcount nextnumber 
-                            megaSet ({Eintrag = input; Checkbox = false ; Number = nextnumber} ::table) 
+                            megaSet ({Eintrag = input; Checkbox = false; Number = nextnumber} ::table) 
                         //Jstring wird in web console geprinted
                           //tabelle soll als string local gespeichert (set) werden und bei wieder aufruf der seite geholt werden (get). Da die liste kein string ist muss es als json zu einem string umgewandelt werden                   
                         ))
@@ -116,14 +117,15 @@ type Todo =
                                     Html.td[
                                         Bulma.control.div [
                                             Bulma.input.checkbox[ //Wenn die checkbox angeklickt wurde (true) soll dies über MegaSet gespeichert werden, aber immernoch veränderbar sein
-                                                prop.onCheckedChange ( fun (x:bool) -> //reagiert auf check
-                                                        if x = true then element.Checkbox <- true
+                                                prop.onCheckedChange ( fun x -> //reagiert auf check
+                                                        if x = true then element.Checkbox <- true //wenn checkbox angeklickt wurde, dann soll das element
                                                         else element.Checkbox <- false
-                                                        megaSet table
- 
+                                                        megaSet table //nach jeder änderung wird 
                                                 )
-                                                // if element.Checkbox = true then prop.isChecked(true) //element.checkbox soll erst überprüft werden wenn er im localstorage ist
-                                                // else prop.isChecked(false)
+                                                // prop.isChecked (
+                                                //     if element.Checkbox = true then true
+                                                //     else false
+                                                //     )
                                             ]
                                         ]
                                     ]
