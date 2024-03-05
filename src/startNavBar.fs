@@ -17,7 +17,7 @@ type NavBar =
      
                 Bulma.navbarItem.a [                
                     prop.text "Nav Bar";   
-                    prop.className "ofa_buttonmenü"                                
+                    // prop.className "ofa_buttonmenü"                                
                 ]             
                 Bulma.navbarItem.a [                
                     prop.text "Todo-Liste";   

@@ -8,7 +8,7 @@ open Fable.SimpleJson
 
 type TodoElement = {
     Eintrag: string
-    Checkbox: bool 
+    mutable Checkbox: bool 
     Number: int
 }
 
@@ -22,18 +22,34 @@ type Todo =
          //ANSATZ: neue funktion schreiben die wie settable etwas an den hinzufügen button schickt
         let (input, setinput) = React.useState("") //setinput soll den input(string) neu setzen. 
         let (count, setcount) = React.useState(0)
+        //let (check, setcheck) = React.useState (false)
         let beispiel = [{Eintrag = "Beispiel: Einkaufen gehen"; Checkbox = false; Number = count}]
-        let (table, settable) = React.useState(beispiel) //table ist ein state der geupdatet wird ruch settable
-
-        let JSONString = Json.stringify table
-
         let setLocalStorage (key:string) (info: string) =
             Browser.WebStorage.localStorage.setItem (key, info)
 
         let getLocalStorage (key: string) =
             Browser.WebStorage.localStorage.getItem (key)
 
-        let backfromstring input= Json.parseAs<TodoElement list> (getLocalStorage input)     
+        let backfromstring input= Json.parseAs<TodoElement list> (getLocalStorage input)
+
+        let isLocalStorageClear () =
+            match Browser.WebStorage.localStorage.getItem("Eintrag") with
+            | null -> true // Local storage is clear if the item doesn't exist
+            | _ -> false
+ 
+         
+        let initialwert =
+            if isLocalStorageClear () then beispiel
+            else backfromstring "Eintrag"            
+
+
+        let (table, settable) = React.useState(initialwert) //table ist ein state der geupdatet wird ruch settable
+
+        let megaSet (nextTable: TodoElement list) =
+            let JSONString = Json.stringify nextTable //tabelle wird zu einem string convertiert
+            Browser.Dom.console.log (JSONString) 
+            setLocalStorage "Eintrag" JSONString
+            settable nextTable
 
         let nextnumber = count + 1
 
@@ -73,9 +89,9 @@ type Todo =
                     prop.text "Eintrag hinzufügen"
                     prop.onClick (fun _ -> ( 
                         //setLocalStorage "Eintrag" JSONString
-                        setcount nextnumber     
-                        {Eintrag = input; Checkbox = false; Number = nextnumber} ::table |> settable //tabelle wird zu einem string convertiert
-                        Browser.Dom.console.log (JSONString) //Jstring wird in web console geprinted
+                            setcount nextnumber 
+                            megaSet ({Eintrag = input; Checkbox = false ; Number = nextnumber} ::table) 
+                        //Jstring wird in web console geprinted
                           //tabelle soll als string local gespeichert (set) werden und bei wieder aufruf der seite geholt werden (get). Da die liste kein string ist muss es als json zu einem string umgewandelt werden                   
                         ))
                     prop.style[
@@ -84,8 +100,7 @@ type Todo =
                 ]               
             ]            
             Html.div[                     
-                    Bulma.table[
-                        
+                    Bulma.table[                      
                         Html.thead[
                             Html.tr[
                                 Html.th "Eintrag"
@@ -98,14 +113,27 @@ type Todo =
                                 //let element = List.item i table
                                 Html.tr[
                                     Html.td element.Eintrag //fügt Eintrag hinzu
-                                    Html.td[Bulma.control.div [Bulma.input.checkbox[]]]
+                                    Html.td[
+                                        Bulma.control.div [
+                                            Bulma.input.checkbox[ //Wenn die checkbox angeklickt wurde (true) soll dies über MegaSet gespeichert werden, aber immernoch veränderbar sein
+                                                prop.onCheckedChange ( fun (x:bool) -> //reagiert auf check
+                                                        if x = true then element.Checkbox <- true
+                                                        else element.Checkbox <- false
+                                                        megaSet table
+ 
+                                                )
+                                                // if element.Checkbox = true then prop.isChecked(true) //element.checkbox soll erst überprüft werden wenn er im localstorage ist
+                                                // else prop.isChecked(false)
+                                            ]
+                                        ]
+                                    ]
                                     Html.td[
                                         Bulma.delete[
                                             delete.isMedium
                                             prop.onClick (fun _ ->                                            
-                                            element.Number |> removeElementFromTable |> settable
+                                            element.Number |> removeElementFromTable |> megaSet
                                             //setLocalStorage "Eintrag" JSONString
-                                                )
+                                            )
                                         ]
                                     ]
                                 ]
@@ -113,25 +141,11 @@ type Todo =
                     ]
             ]
             Html.div[
-             Bulma.button.button[
-                    color.isLink;
-                    prop.text "speichern"
-                    prop.onClick (fun _ -> (
-                        setLocalStorage "Eintrag" JSONString 
-                        ))
-                    prop.style[
-                        style.fontSize 20
-                        style.marginTop (length.rem 5)
-                    ]
-                ]
-            ]
-            Html.div[
                 Bulma.button.button[
                     color.isLink;
-                    prop.text "Speicher laden"
+                    prop.text "Speicher zurücksetzen"
                     prop.onClick (fun _ -> (
-                        backfromstring "Eintrag"|> settable // ruft über get den local storgae auf über den key, und konvertiert ihn zurück in den table und wird anschließend gesetttet
-                                                            //tabelle soll als string local gespeichert (set) werden und bei wieder aufruf der seite geholt werden (get). Da die liste kein string ist muss es als json zu eunem string umgewandelt werden                   
+                        Browser.WebStorage.localStorage.removeItem "Eintrag" 
                         ))
                     prop.style[
                         style.fontSize 20
