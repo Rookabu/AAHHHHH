@@ -120,8 +120,10 @@ type Todo =
                                                 prop.onCheckedChange ( fun x -> //reagiert auf check
                                                         if x = true then element.Checkbox <- true //wenn checkbox angeklickt wurde, dann soll das element
                                                         else element.Checkbox <- false
-                                                        megaSet table //nach jeder änderung wird 
+                                                        megaSet table 
+                                                        
                                                 )
+                                                prop.isChecked (element.Checkbox)
                                                 // prop.isChecked (
                                                 //     if element.Checkbox = true then true
                                                 //     else false
