@@ -95,7 +95,6 @@ type Todo =
                     prop.text "Eintrag hinzufügen"
                     prop.onClick (fun _ -> ( 
                         //setLocalStorage "Eintrag" JSONString
-                            setcount (count + 1) 
                             megaSet ({Eintrag = input; Checkbox = false} ::table) 
                         //Jstr ing wird in web console geprinted
                           //tabelle soll als string local gespeichert (set) werden und bei wieder aufruf der seite geholt werden (get). Da die liste kein string ist muss es als json zu einem string umgewandelt werden                   
@@ -109,13 +108,13 @@ type Todo =
                 Bulma.table [   
                     SubComponents.tablehead                                      
                     Html.tbody [ 
-                          for i in [0 .. (table.Length - 1)]  do //für jedes Element in table wird folgendes gemacht:
+                            for i in [0 .. (table.Length - 1)]  do //für jedes Element in table wird folgendes gemacht:
                             let element = List.item i table //holt von dem aktuellem index i das Element
                             Html.tr [
                                 Html.td element.Eintrag //fügt Eintrag hinzu
                                 Html.td [
                                     Bulma.control.div [
-                                        Bulma.input.checkbox[ //Wenn die checkbox angeklickt wurde (true) soll dies über MegaSet gespeichert werden, aber immernoch veränderbar sein
+                                        Bulma.input.checkbox [ //Wenn die checkbox angeklickt wurde (true) soll dies über MegaSet gespeichert werden, aber immernoch veränderbar sein
                                             prop.onCheckedChange (fun (x:bool) ->
                                                 //Wenn gechecked wird und x = true ist dann soll das element auf true gesetzt werden und gechecked sein. Beim wiederaufrufen sollen diese immernoch gechecked sein (prop,onclick). Mit List.map über alles mappen
                                                 table
@@ -140,8 +139,7 @@ type Todo =
                                     Bulma.delete [
                                         delete.isMedium
                                         prop.onClick (fun _ ->                                            
-                                        element.Number |> removeElementFromTable |> megaSet
-                                        //setLocalStorage "Eintrag" JSONString
+                                        table |> List.removeAt i |> megaSet
                                         )
                                     ]
                                 ]
@@ -149,6 +147,7 @@ type Todo =
                         
                     ]
                 ]
+            
                 Html.div [
                     Bulma.button.button [
                     color.isLink;
@@ -160,7 +159,8 @@ type Todo =
                         style.fontSize 20
                     ]
                 ]               
-            ]
+            
+                ]
             ]          
             ]
         ]
