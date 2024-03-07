@@ -14,10 +14,8 @@ type NavBar =
         Bulma.navbarMenu [                        
             Bulma.navbarStart.div [  
                 Bulma.navbarItem.a [ Html.img [ prop.src "https://bulma.io/images/bulma-logo-white.png"; prop.height 28; prop.width 112; ]]
-     
                 Bulma.navbarItem.a [                
-                    prop.text "Nav Bar";   
-                    // prop.className "ofa_buttonmenü"                                
+                    prop.text "Nav Bar";                                
                 ]             
                 Bulma.navbarItem.a [                
                     prop.text "Todo-Liste";   
