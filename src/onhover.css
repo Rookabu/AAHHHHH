@@ -36,19 +36,17 @@
 inline block überschrieben wird */
 
 
-.hovereffektminus:hover + .hiddenuntilhoverminus {
+.hovereffektminus:hover + .hiddenuntilhoverminus{
     display: contents;
   }
 
 .hiddenuntilhoverplus {
     display: none 
-    
 }
 /* Zustand des Textes wenn nicht gehovert wird (none) */
 
 .hiddenuntilhoverminus {
     display: none;
-
 }
 
 .transition-all {
@@ -58,32 +56,31 @@ inline block überschrieben wird */
 
 /* fügt der component einen transition effekt hinzu (wurde seperat hinzugefügt) */
 
-html{
+html {
   overflow: auto;
   background-color: #c7c7c7
 }
 
-body{
+body {
   background:#c7c7c7;
   font-family: 'Franklin Gothic Medium';
   color: rgb(0, 0, 0);
 }
 
-.ofa_button
-    {background-color: #0e4d0c; color: #FFFFFF; padding: 10px; text-align: center; font-size: 16px;
-    border: 5px solid #FFFFFFFF; /* Ein transparenter Rahmen */
-    transition: 0.4s;
-    display: block;
-    margin: 40px;
-    width: 170px;   
-  } /* Alle Eigenschaften werden animiert */
+.ofa_button{
+  background-color: #0e4d0c; color: #FFFFFF; padding: 10px; text-align: center; font-size: 16px;
+  border: 5px solid #FFFFFFFF; /* Ein transparenter Rahmen */
+  transition: 0.4s;
+  display: block;
+  margin: 40px;
+  width: 170px;   
+} /* Alle Eigenschaften werden animiert */
     
-.ofa_button:hover
-    {
-    background-color: #FFFFFF;
-    color: #000000;
-    border: 5px solid #0e4d0c;
-    }
+.ofa_button:hover {
+  background-color: #FFFFFF;
+  color: #000000;
+  border: 5px solid #0e4d0c;
+}
 
  .ueberschrift {
   font-size: 130%;
@@ -92,24 +89,24 @@ body{
 
  .remainHighlight {
   background-color: #FFFFFF;
-    color: #000000;
-    border: 5px solid #0e4d0c; 
-    text-align: center; 
-    font-size: 16px;
-    transition: 0.4s;
-    display: block;
-    margin: 40px; 
-    width: 200px;   
+  color: #000000;
+  border: 5px solid #0e4d0c; 
+  text-align: center; 
+  font-size: 16px;
+  transition: 0.4s;
+  display: block;
+  margin: 40px; 
+  width: 200px;   
  }
 
- .ofa_buttonmenü
- {background-color: #0e4d0c; color: #FFFFFF; padding: 10px; text-align: center; font-size: 16px;
- border: 5px solid #FFFFFFFF; /* Ein transparenter Rahmen */
- transition: 0.4s;
- text-align: center;
- display: block;
- margin: 40px; 
- width: 200px;   
+ .ofa_buttonmenü {
+  background-color: #0e4d0c; color: #FFFFFF; padding: 10px; text-align: center; font-size: 16px;
+  border: 5px solid #FFFFFFFF; /* Ein transparenter Rahmen */
+  transition: 0.4s;
+  text-align: center;
+  display: block;
+  margin: 40px; 
+  width: 200px;   
 }
 
 .childstyle > :not(:first-child) {

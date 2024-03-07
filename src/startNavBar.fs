@@ -37,32 +37,6 @@ type NavBar =
         
         //Definiert den subpage link und ihr aussehen (ofa button)
 
-        // Bulma.navbarMenu [
-        //     Bulma.navbarStart.div [
-        //         Bulma.navbarItem.a [prop.text (targetpage.toStringReadable()); 
-        //                             prop.onClick (fun _ -> setPage(targetpage));
-        //                             if targetpage = statePage then  //target page = gewollter state, statepage= aktueller state                
-        //                                 prop.className "remainHighlight"   
-        //                             else prop.className "ofa_button"]                
-        //                 ]
-        //             ]
-        
-
-
-    
-    // static member Counter(setPage, currentpage) = 
-    //     NavBar.Subpagelink( setPage, currentpage)   //verlinkt den richten suppage link mit dem typen
-     
-    //static member Allgemein(setPage, currentpage) =   
-       // NavBar.Subpagelink(setPage, currentpage)  //verlinkt den richten suppage link mit dem typen
-
-    // static member Überschrift() =
-    //      Bulma.navbarMenu [
-    //         Bulma.navbarStart.div [
-    //             Bulma.navbarItem.a [prop.text "NavBar"; prop.className "ofa_buttonmenü"]
-    //         ]
-    //     ]
-
 
 
 
