@@ -122,17 +122,17 @@ type Todo =
                                 Html.td [
                                     Bulma.control.div [
                                         Bulma.input.checkbox [ //Wenn die checkbox angeklickt wurde (true) soll dies über MegaSet gespeichert werden, aber immernoch veränderbar sein
-                                            prop.onCheckedChange (fun (isChecked:bool) -> 
+                                            prop.onCheckedChange (fun (isChecked:bool) ->  //on checked change reagiert nicht auf klick, sondern auf en zustand der checkbox
                                                 log isChecked
                                                 // Wenn gechecked wird und x = true ist dann soll das element auf true gesetzt werden und gechecked sein. 
                                                 //Beim wiederaufrufen sollen diese immernoch gechecked sein (prop,onclick). Mit List.map über alles mappen
                                                 table
-                                                |> List.mapi (fun indx item -> 
-                                                    if indx = i then 
+                                                |> List.mapi (fun indx item -> //List.mapi: Wenn indx dem aktellen element mit dem index i entspricht then soll dieses item                                                                           //
+                                                    if indx = i then           //gelogt werden und das item wird geupdatet zu einer checkbox ischecked. IsChecked ist abhängig ob gecheked (true) oder nicht (false)
                                                         log item
                                                         {item with Checkbox=isChecked}
                                                     else 
-                                                        item
+                                                        item //wenn der aktuelle index nicht i entspricht dann soll das item (TodoElement) so bleiben wie es ist 
                                                 ) 
                                                 |> megaSet  
                                             )                                                   
