@@ -121,5 +121,10 @@ body{
 .childstyle > * {
   margin-top: 20px; /* Adjust this value to set the desired margin */
 }
+
+.crossed-out {
+  text-decoration: line-through;
+  color: #999; /* Light grey color */
+}
   
 
